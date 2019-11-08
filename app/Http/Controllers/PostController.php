@@ -19,4 +19,22 @@ class PostController extends Controller{
             ]);
         }
     }
+    public function post_list(){
+         return response()->json([
+            'data' => Post::all()
+         ]);
+    }
+    public function byId($id){
+        $post = Post::find($id);
+        if(!$post){
+            return response()->json([
+                'status' => 'failed',
+                'msg' => 'post not found!'
+             ]);
+        }
+        return response()->json([
+            'data' => $post
+         ]);
+    }
+
 }

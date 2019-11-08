@@ -14,5 +14,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-
+$router->get('/posts', 'PostController@post_list');
+$router->get('/posts/{id_post}', 'PostController@byId');
 $router->post('/create-post', 'PostController@create_post');
