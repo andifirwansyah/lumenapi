@@ -36,5 +36,8 @@ class PostController extends Controller{
             'data' => $post
          ]);
     }
+    public function delete($id){
+        
+    }
 
 }
