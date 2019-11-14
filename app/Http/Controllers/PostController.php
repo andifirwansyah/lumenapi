@@ -37,7 +37,13 @@ class PostController extends Controller{
          ]);
     }
     public function delete($id){
-        
+        $post = Post::find($id);
+        if(!$post){
+            return response()->json([
+                "status" => "failed",
+                "msg" => "Not found! Couldn't delete data"
+            ]);
+        }
     }
 
 }
