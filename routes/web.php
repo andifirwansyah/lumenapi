@@ -18,3 +18,4 @@ $router->get('/posts', 'PostController@post_list');
 $router->get('/posts/{id_post}', 'PostController@byId');
 $router->post('/create-post', 'PostController@create_post');
 $router->delete('/posts/delete/{id_post}', 'PostController@delete');
+$router->put('/posts/update/{id_post}', 'PostController@update');

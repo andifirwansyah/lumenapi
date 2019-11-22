@@ -48,12 +48,30 @@ class PostController extends Controller{
             }else{
                 return response()->json([
                     "status" => "failed",
-                    "msg" => "Not found! Couldn't delete data"
+                    "msg" => "Not found! Couldn't delete article"
                 ]);
-            }
-            
+            }       
         }
-
+    }
+    public function update(Request $request, $id_post){
+        $post = Post::where('id_post', $id_post)->first();
+        if($post){
+            $post->title = $request->input('title');
+            $post->body = $request->input('body');
+            $post->save();
+            
+            return response()->json([
+                "status" => "success",
+                "msg" => "Article update successful!"
+            ]);
+        }else{
+            return response()->json([
+                "status" => "failed",
+                "msg" => "Couldn't update, article not found!"
+            ]);
+        }
+        
+    
     }
 
 }
