@@ -38,16 +38,22 @@ class PostController extends Controller{
     }
     public function delete($id){
         $post = Post::where('id_post',$id)->first();
-        $post->delete();
-        if(!$post){
-            return response()->json([
-                "status" => "failed",
-                "msg" => "Not found! Couldn't delete data"
-            ]);
+        if($post != null){
+            $post->delete();
+            if($post){
+                return response()->json([
+                    "status" => "success",
+                    "msg" => "Article has been deleted!"
+                ]);
+            }else{
+                return response()->json([
+                    "status" => "failed",
+                    "msg" => "Not found! Couldn't delete data"
+                ]);
+            }
+            
         }
-        return response()->json([
-            'data' => $post
-        ]);
+
     }
 
 }
