@@ -14,8 +14,8 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-$router->get('/posts', 'PostController@post_list');
-$router->get('/posts/{id_post}', 'PostController@byId');
-$router->post('/create-post', 'PostController@create_post');
-$router->delete('/posts/delete/{id_post}', 'PostController@delete');
-$router->put('/posts/update/{id_post}', 'PostController@update');
+$router->get('/todo', 'PostController@post_list');
+$router->get('/todo/{id_post}', 'PostController@byId');
+$router->post('/create-todo', 'PostController@create_post');
+$router->delete('/todo/delete/{id_post}', 'PostController@delete');
+$router->put('/todo/update/{id_post}', 'PostController@update');

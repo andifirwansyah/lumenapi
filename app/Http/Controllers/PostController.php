@@ -15,7 +15,7 @@ class PostController extends Controller{
         if($isPost){
             return response()->json([
                 'status' => 'success',
-                'msg' => 'article successful created!'
+                'msg' => 'todo successful created!'
             ]);
         }
     }
@@ -29,7 +29,7 @@ class PostController extends Controller{
         if(!$post){
             return response()->json([
                 'status' => 'failed',
-                'msg' => 'post not found!'
+                'msg' => 'todo not found!'
              ]);
         }
         return response()->json([
@@ -43,12 +43,12 @@ class PostController extends Controller{
             if($post){
                 return response()->json([
                     "status" => "success",
-                    "msg" => "Article has been deleted!"
+                    "msg" => "Todo has been deleted!"
                 ]);
             }else{
                 return response()->json([
                     "status" => "failed",
-                    "msg" => "Not found! Couldn't delete article"
+                    "msg" => "Not found! Couldn't delete todo"
                 ]);
             }       
         }
@@ -62,16 +62,15 @@ class PostController extends Controller{
             
             return response()->json([
                 "status" => "success",
-                "msg" => "Article update successful!"
+                "msg" => "Todo update successful!"
             ]);
         }else{
             return response()->json([
                 "status" => "failed",
-                "msg" => "Couldn't update, article not found!"
+                "msg" => "Couldn't update, Todo not found!"
             ]);
         }
-        
-    
+
     }
 
 }
